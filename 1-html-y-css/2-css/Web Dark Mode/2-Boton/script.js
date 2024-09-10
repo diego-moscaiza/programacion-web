@@ -1,55 +1,55 @@
-// Función para que el botón cambie de tema
-const buttonToggle = document.getElementById("toggleTheme");
+// --- Light & Dark Theme ---
 
-buttonToggle.addEventListener("click", () => {
-  document.documentElement.classList.toggle("dark-mode");
-  saveTheme();
+const $lightThemeButton = document.getElementById("lightTheme");
+const $darkThemeButton = document.getElementById("darkTheme");
+
+const storeTheme = () => {
+  const $rootDarkMode = document.documentElement.classList.contains("dark");
+  $rootDarkMode
+    ? localStorage.setItem("theme", "dark")
+    : localStorage.setItem("theme", "light");
+};
+
+const loadStoredTheme = () => {
+  const storedTheme = localStorage.getItem("theme");
+  if (!storedTheme) return;
+  storedTheme === "dark"
+    ? document.documentElement.classList.add("dark")
+    : document.documentElement.classList.remove("dark");
+};
+
+loadStoredTheme();
+
+// Light button pressed
+$lightThemeButton.addEventListener("click", () => {
+  document.documentElement.classList.remove("dark");
+  storeTheme();
 });
 
-// Función para guardar el estado de la preferencia de color
-const saveTheme = () => {
-  if (document.documentElement.classList.contains("dark-mode")) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
-  }
+// Dark button pressed
+$darkThemeButton.addEventListener("click", () => {
+  document.documentElement.classList.add("dark");
+  storeTheme();
+});
+
+// --- Prefer System Theme ---
+
+const $preferSystemThemeButton = document.getElementById("preferSystemColor");
+
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+const preferSystemTheme = () => {
+  localStorage.removeItem("theme");
+
+  prefersDarkScheme.matches
+    ? document.documentElement.classList.add("dark")
+    : document.documentElement.classList.remove("dark");
+
+  prefersDarkScheme.addEventListener("change", preferSystemTheme);
 };
 
-// Función para guardar la preferencia de color en el localStorage
-const loadTheme = () => {
-  const currentTheme = localStorage.getItem("theme");
-  if (currentTheme === "dark") {
-    document.documentElement.classList.add("dark-mode");
-  } else {
-    document.documentElement.classList.remove("dark-mode");
-  }
-};
+$preferSystemThemeButton.addEventListener("click", preferSystemTheme);
 
-loadTheme();
-
-
-// Algoritmo para cambiar de tema de acuerdo a la preferencia de color de sistema operativo de usuario
-const toggleThemeButton = document.getElementById("tooglePreferColor");
-
-const preferColorTheme = async () => {
-  // Compruebe si el sistema operativo del usuario tiene una preferencia de combinación de colores oscuros
-  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
-  // Función para actualizar el tema según la preferencia del sistema operativo del usuario.
-  const updateTheme = async () => {
-    if (prefersDarkScheme.matches) {
-      document.documentElement.classList.add("dark-mode");
-    } else {
-      document.documentElement.classList.remove("dark-mode");
-    }
-  }
-
-  // Actualización inicial del tema
-  updateTheme();
-  saveTheme();
-  // Actualice el tema cada vez que el usuario cambie su preferencia de sistema operativo.
-  prefersDarkScheme.addEventListener("change", updateTheme);
-};
-
-// Función para que el botón cambie dependiendo de la preferencia de SO del usuario
-toggleThemeButton.addEventListener("click", preferColorTheme);
+if (!localStorage.getItem("theme")) {
+  preferSystemTheme();
+}
