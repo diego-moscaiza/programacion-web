@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Pagina web con opción de tema oscuro" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modo oscuro con botón</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <div class="dropdown">
+      <button class="dropdown-button">
+        Tema <i class="fa-solid fa-chevron-down"></i>
+      </button>
+      <ul class="dropdown-list">
+        <li id="lightTheme">Claro</li>
+        <li id="darkTheme">Oscuro</li>
+        <li id="preferSystemColor">Sistema</li>
+      </ul>
+    </div>
+
+    <h1>Hello world!</h1>
+  </body>
+</html>
