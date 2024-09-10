@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./../src/favicon.png" />
+    <link rel="stylesheet" href="./../src/styles.css" />
+    <title>Audio y Video</title>
+
+    <!--Antes de Html5 los elementos multimedia solo se podían reproducir con flash-->
+    <!--Con html5 ya se puede usar sentencias para que ejecute archivos multimedia desde el navegador-->
+    <!--Un codec es un software que codifica y decodifica archivos multimedia -->
+    <!--ejms: h264. otra opciones para comprimir videos es subir a YouTube o Vimeo y descargarlos-->
+
+    <!--Aquí declaramos con CSS que el tamaño del video sea de 500px-->
+    <style>
+      video {
+        width: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <!--Usaremos un audio y el atributo 'controls'-->
+        <h1>Audio</h1>
+        <p>Probando un audio xd</p>
+        <audio src="./media/music.mp3" controls>Music</audio>
+        <!--Podemos crear reproductores de multimedia a nuestra medida
+    con herramientas con video.js o flowplayer-->
+      </section>
+      <br />
+      <section>
+        <h1>Video</h1>
+        <p>Probando un video xd</p>
+        <!--Hagamos un ejm, para eso usaremos 'video'-->
+        <!--Usamos el atributo 'controls' para tener una barra de video-->
+        <!--Con 'autoplay' iniciamos automaticamente el video-->
+        <!--Con 'poster' podemos poner una imagen al video-->
+
+        <video
+          id="video"
+          src="./media/video.mp4"
+          poster="./media/image.png"
+        ></video>
+
+        <div>
+          <button id="play">Play</button>
+          <button id="pause">Pause</button>
+        </div>
+      </section>
+    </main>
+    <script>
+      // Aqui usamos JavaScript
+
+      // Declaramos 3 atributos de tipo 'const' ('video','play','pause') a cada uno le llamamos a los 'id' => 'video','play','pause' respectivamente
+      const video = document.getElementById("video");
+      const play = document.getElementById("play");
+      const pause = document.getElementById("pause");
+
+      // Luego a los atributos 'play' y 'pause' y le asignamos métodos
+      play.addEventListener("click", () => {
+        video.play();
+      });
+
+      pause.addEventListener("click", () => {
+        video.pause();
+      });
+    </script>
+
+    <!--TIP:
+        Si deseamos ver las demás propiedades de los elementos, hacemos lo siguiente:
+        seleccionamos el elemento con 'inspeccionar' y luego vamos a la consola
+        y escrimimos: 'console.dir($0)' y nos mostrará todas las propiedades y los métodos.-->
+  </body>
+</html>

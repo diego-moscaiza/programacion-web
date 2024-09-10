@@ -1,0 +1,62 @@
+/* General Styles */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, red, blue, green, black);
+    background-size: 250%;
+    animation: change-color 10s ease-in-out infinite;
+}
+
+h1 {
+    font-size: 4rem;
+    letter-spacing: 2px;
+    border: solid 3px #fff;
+    border-radius: 25px;
+    padding: 2rem 3rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+@keyframes change-color {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+        padding: 1.5rem 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+    }
+}
+
+@media (max-width: 340px) {
+    h1 {
+        font-size: 1.5rem;
+        padding: 0.75rem 1.5rem;
+    }
+}

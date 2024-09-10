@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./../src/favicon.png" />
+    <link rel="stylesheet" href="./../src/styles.css" />
+    <title>Jugando con Imagenes</title>
+  </head>
+
+  <body>
+    <!--Primero introducimos todo dentro de una etiqueta 'picture'-->
+    <picture>
+      <!--Aqui usaremos 'srcset' que sirve para tener un conjunto de imagenes-->
+      <!-- Se usa tanto 'srcset' como 'media'-query (para controlar el tamaño de pantalla). -->
+      <source srcset="img/linterna.jpg" media="(max-width: 600px)" />
+      <source srcset="img/bosque_2.jpg" media="(max-width: 700px)" />
+      <!-- Imagen por defecto si no cumple con ninguna regla -->
+      <source srcset="img/bosque_1.jpg" />
+      <!-- Imagen por defecto si el navegador no soporta la etiqueta picture -->
+      <img src="img/bosque_1.jpg" alt="imagen por defecto" />
+    </picture>
+    <!--SI QUEREMOS QUE LA IMAGEN SE VEA RESPONSIVA PODEMOS USAR 'SVG'
+    <img src="logo.svg" alt="imagen responsiva" Y LISTO! -->
+  </body>
+</html>

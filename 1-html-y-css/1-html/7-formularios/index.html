@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./../src/favicon.png" />
+    <link rel="stylesheet" href="./../src/styles.css" />
+    <title>FORMULARIOS</title>
+
+    <!--Los datos permiten enviar y recibir datos del usuario-->
+  </head>
+
+  <body>
+    <!--Usamos 'form' que viene con su atributo 'action' que indica
+    que archivo va a procesar los datos, eso ya es parte del backend-->
+    <!--En cada campo del formulario se reciben. Por ejm: 'input'-->
+    <!--'label' es quien le da título a un campo, y con su atributo 'for' conectamos el campo con el nombre-->
+    <!--Cada 'input' debe tener un 'name' ya que lo identifica y lo relaciona con el backend-->
+    <!--Con 'value' le asignamos un nombre que lo identifica, y podemos utilizarlos para interactuar con JavaScript-->
+    <!--Los 'inputs' que tienen un campo para escribir reciben un atributo llamado 'placeholder',
+    podriamos reemplazar el 'label' al costado y poner ese texto en el mismo campo de texto.-->
+    <!--Con 'fieldset' podemos agrupar campos-->
+    <!--Con 'legend' se le da un nombre al 'fieldset'-->
+    <!--'select' nos permite agrupar opciones en una lista desplegable, el 'name' es para juntarlo con base de datos-->
+    <!--Con 'optgroup' agrupamos los 'option', y le damos nombre al primero con un 'label'-->
+    <!--'textarea' sirve para escribir mensajes largos, ya que tenemos 'cols', 'rows' y 'placeholder'.-->
+    <!--Con el atributo 'required' le indicamos que no puede enviar nada hasta que llene ese campo
+        y con 'readonly' hacemos que el valor de un campo no se pueda modificar-->
+
+    <h1>Formularios</h1>
+    <form>
+      <!--action=""-->
+      <!--Forma 1:-->
+      <!--label for="nombre">Ingrese su nombre</label-->
+      <!--input type="text" id="nombre"-->
+      <!--Forma 2:-->
+
+      <!--div>
+                <label>
+                    Ingrese su usuario:
+                    <input id="username" name="username">
+                </label>
+            </div-->
+
+      <fieldset>
+        <legend>Tus datos personales</legend>
+        <input name="username" placeholder="Ingrese su usuario" />
+
+        <div>
+          <label>
+            Ingrese su correo:
+            <input type="email" id="email" name="email" required />
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Tus datos en la plataforma:</legend>
+
+        <div>
+          <label>
+            Fecha de Nacimiento:
+            <input type="date" />
+          </label>
+        </div>
+
+        <div>
+          <label>
+            Ingrese su número favorito:
+            <input type="number" />
+          </label>
+        </div>
+
+        <div>
+          <label>
+            Ingrese su contraseña:
+            <input id="password" type="password" name="password" />
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Tus pasatiempos:</legend>
+
+        <label> <input type="checkbox" />Deportes </label>
+
+        <label> <input type="checkbox" />Cine </label>
+
+        <label> <input type="checkbox" />Formula 1 </label>
+
+        <label> <input type="checkbox" />Netflix </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Selecciona tu género:</legend>
+
+        <label> <input type="radio" name="gender" /> Hombre </label>
+
+        <label> <input type="radio" name="gender" /> Mujer </label>
+
+        <label> <input type="radio" name="gender" /> No especificar </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Select y opciones:</legend>
+        <label name="country">Escoge tu pais</label>
+        <select name="country" id="country">
+          <optgroup label="America">
+            <option value="pe">Perú</option>
+            <option value="co">Colombia</option>
+            <option value="ve">Venezuela</option>
+          </optgroup>
+
+          <optgroup label="Europa">
+            <option value="es">España</option>
+            <option value="it">Italia</option>
+          </optgroup>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Mnesaje (opcional)</legend>
+        <div>
+          <textarea
+            name="mensaje"
+            id=""
+            cols="50"
+            rows="3"
+            placeholder="Escribe tu mensaje"
+          ></textarea>
+        </div>
+      </fieldset>
+
+      <input type="submit" value="Iniciar sesion" />
+
+      <!--button>Enviar</button-->
+    </form>
+
+    <script>
+      //el evento 'keyup' se usa cuando se quiere saber si se ha dejado de presionar una tecla
+      //'target' es el elemento donde se ejecuta tal evento.
+      document.getElementById("password").addEventListener("keyup", (e) => {
+        console.log(e.target.value);
+      });
+    </script>
+  </body>
+</html>

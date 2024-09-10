@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./../src/favicon.png" />
+    <link rel="stylesheet" href="./../src/styles.css" />
+    <title>Tablas</title>
+  </head>
+
+  <body>
+    <!--Las tablas se usan para mostrar datos de manera tabular-->
+    <!--Antes las tablas se usaban para manejar la estructura de la página-->
+    <!--En Html no existe el concepto de columna-->
+
+    <!--Usaremos un elemento 'table'-->
+    <!--'tr'(table-row), es fila de una tabla-->
+    <!--para referirnos a las celdas de la tabla usamos 'td'(table-data), que es donde contenemos los datos -->
+    <!--'th' se usa para tener una cabecera en la tabla-->
+    <!--Con 'thead' guardamos nuestro encabezado y luego viene el 'tbody'-->
+    <!--Para poner conclusiones en la tabla usamos 'tfoot'-->
+    <!--Con 'colspan' decimos la cantidad de celdas (hacia los lados)queremos abarcar-->
+    <!--Y con 'rowspan' decimos la cantidad de celdas (hacia abajo) queremos abarcar-->
+    <!--Para poner un título usamos 'caption'-->
+    <!--Usamos 'colgroup' y 'col' para pode acceder a las columnas. Se pone al inicio por orden-->
+    <!--'border="1"' es mejor usarlo en css ya que es el diseño-->
+
+    <table>
+      <colgroup>
+        <col span="4" />
+        <col style="background: yellow" />
+      </colgroup>
+      <caption>
+        Mi horario de Clases
+      </caption>
+      <thead>
+        <tr>
+          <th>Lunes</th>
+          <th>Martes</th>
+          <th>Miércoles</th>
+          <th>Jueves</th>
+          <th>Viernes</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td rowspan="2">HTML</td>
+          <td>PHP</td>
+          <td rowspan="2">JavaScript</td>
+          <td>Python</td>
+          <td>CSS</td>
+        </tr>
+        <tr>
+          <td>Go</td>
+          <td>Big Data</td>
+          <td>Diseño UX</td>
+        </tr>
+        <tr>
+          <td colspan="5">Recreo</td>
+        </tr>
+        <tr>
+          <td>Java</td>
+          <td>SQL</td>
+          <td>Algoritmos</td>
+          <td>Angular</td>
+          <td>PWA</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <!--Aqui pondremos los créditos-->
+        <tr>
+          <td>6 créditos</td>
+          <td>3 créditos</td>
+          <td>4 créditos</td>
+          <td>2 créditos</td>
+          <td>7 créditos</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

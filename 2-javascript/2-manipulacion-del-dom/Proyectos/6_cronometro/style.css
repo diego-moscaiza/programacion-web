@@ -1,0 +1,67 @@
+/* ESTILOS GENERALES */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url(img/bck-madera.jpg) no-repeat center center/ cover;
+}
+
+/* CONTENEDORES */
+
+.contenedor-principal {
+    width: 80vw;
+    max-width: 600px;
+    min-height: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+}
+
+.contenedor-botones {
+    padding: 20px;
+}
+
+/* CRONOMETRO */
+
+#cronometro {
+    width: 100%;
+    font-size: 80px;
+    font-weight: bold;
+    user-select: none;
+}
+
+/* BOTONES */
+
+.boton {
+    width: 80px;
+    height: 80px;
+    font-size: 50px;
+    margin: 10px;
+    padding: 10px;
+}
+
+#boton-inicio-pausa.iniciar,
+#boton-inicio-pausa.iniciar i {
+    background-color: rgb(26, 255, 0);
+}
+
+#boton-inicio-pausa.pausar,
+#boton-inicio-pausa.pausar i {
+    background-color: rgb(217, 255, 48);
+}
+
+#boton-reiniciar {
+    background-color: red;
+}
+
+

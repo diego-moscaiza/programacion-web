@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+  background: grey;
+}
+
+/*Llamamos a los elementos 'table', 'td' de html*/
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background: blue;
+  color: #fff;
+}
+
+td {
+  border: 1px solid #ddd;
+}
+
+td,
+th {
+  text-align: center;
+  padding: 0.5em;
+}
+
+tfoot {
+  background: yellow;
+}

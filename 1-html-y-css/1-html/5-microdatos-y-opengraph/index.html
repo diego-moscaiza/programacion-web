@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./../src/favicon.png" />
+    <link rel="stylesheet" href="./../src/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Microdatos</h1>
+        <!--Usamos un article-->
+        <p>Ejemplo 1</p>
+        <article>
+          <h2>Zapatilla Casual</h2>
+          <img src="./img/zapatilla_nike.png" alt="Foto de zapatilla" />
+          <p>Marca: <spam>Nike</spam></p>
+          <p>Precio: <spam>s/. 300</spam></p>
+        </article>
+
+        <p>
+          ------------------------------------------------------------------
+        </p>
+
+        <!--Para indicar las características de algo o de alguien en la web, se necesitan microdatos
+Para ellos podemos usar los esquemas de 'schema.org'-->
+        <!--https://schema.org/docs/full.html-->
+        <!--Usaremos 'article' para hacer una noticia-->
+        <p>Ejemplo 2</p>
+        <article itemscope itemtype="http://schema.org/Blog">
+          <h2>Curso HTML 5.2</h2>
+          <p>Finalizado</p>
+          <footer>
+            <!--Con 'itemprop' indicamos a alguien o algo, en este caso, a un autor-->
+            <p itemprop="author">Escrito por: Adrian Padilla</p>
+          </footer>
+        </article>
+
+        <!--Para probrar si esta bien estructurado este 'article' podemos chekearlo en las siguienetes paginas:-->
+        <!--1.- https://search.google.com/test/rich-results?utm_campaign=sdtt&utm_medium=code-->
+        <!--2.- https://search.google.com/structured-data/testing-tool/u/0/?hl=es-->
+      </section>
+      <br />
+      <hr />
+      <section>
+        <!--Opengraph es un protocolo de Facebook que es parecido a los microdatos
+    Su pagina es: https://ogp.me/
+    Y ahi está toda la documentación.-->
+        <!--EJEMPLO:-->
+        <h1>Open Grafh</h1>
+
+        <p>
+          Para que se muestre la informacion de un link en facebook<br />
+          Colocamos al inicio del archivo 'html' el 'prefix'
+        </p>
+        <pre>
+        <code>html lang="es" prefix="og: http://ogp.me/ns#"</code>
+    </pre>
+        <p>Luego nos vamos al 'head' y colocamos lo siguiente:</p>
+        <pre>
+        <code>
+          &lt;head&gt;
+            &lt;title&gt;The Rock (1996)&lt;/title&gt;
+            &lt;meta property="og:title" content="The Rock" /&gt;
+            &lt;meta property="og:type" content="video.movie" /&gt;
+            &lt;meta property="og:url" content="https://www.imdb.com/title/tt0117500/" /&gt;
+            &lt;meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" /&gt;
+            ...
+          &lt;/head&gt;
+        </code>
+      </pre>
+        <p>
+          En cada etiqueta 'meta' agregamos un atributo 'property' con un valor
+          como 'og:...', que define una propiedad y su tipo de dato.
+          <br />
+          En 'content=""' se coloca el valor correspondiente a la propiedad.
+        </p>
+        <!--PARA COMPROBAR SI ESTA BIEN HECHA LA ESTRUCTURA PARA OPENGRAPH-->
+      </section>
+    </main>
+  </body>
+</html>
