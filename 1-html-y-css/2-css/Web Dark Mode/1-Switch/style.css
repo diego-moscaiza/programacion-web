@@ -1,21 +1,28 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 :root {
-  --color-background: #f9f9f9;
   --color-text: #202020;
+  --color-background: #f9f9f9;
   --color-accent-1: #d8d8d8;
   --color-accent-2: #c1c1c1;
+  --color-circle: #5e6264;
 }
 
-.dark-mode {
-  --color-background: #202020;
+.dark {
   --color-text: #f9f9f9;
+  --color-background: #202020;
   --color-accent-1: #3b4042;
   --color-accent-2: #585858;
+  --color-circle: #f9f9f9;
 }
 
 body {
@@ -63,7 +70,7 @@ nav {
   width: 24px;
   left: 4px;
   bottom: 3px;
-  background-color: #ffffff;
+  background-color: var(--color-circle);
   transition: 0.4s;
   border-radius: 50%;
 }
@@ -73,26 +80,13 @@ nav {
 }
 
 input:checked + .slider {
-  background-color: var(--color-accent-1);
+  background-color: rgb(29, 164, 253);
 }
 
 input:checked + .slider:hover {
-  background-color: var(--color-accent-2);
+  background-color: rgb(57, 176, 255);
 }
 
 input:checked + .slider:before {
   transform: translateX(26px);
-}
-
-button {
-  padding: 5px 10px;
-  background-color: var(--color-accent-1);
-  color: var(--color-text);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: var(--color-accent-2);
 }
